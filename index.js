@@ -14,6 +14,12 @@ app.use(express.session({
   secret: 'YOUR SECRET',
 }));
 
+//here we define a simple REST endpoint that will return a JSON file
+app.get('/api/v1/contacts', function (req, res) {
+  //res.send("yay!");
+  res.sendfile(__dirname + "/contacts.json");
+});
+
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'public')));
 
